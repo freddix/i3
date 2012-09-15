@@ -1,0 +1,11 @@
+
+[Unit]
+Description=i3 Window Manager
+Requires=dbus.socket
+
+[Service]
+ExecStart=/usr/bin/i3
+
+[Install]
+WantedBy=i3.target
+
