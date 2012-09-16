@@ -1,0 +1,6 @@
+
+[Unit]
+Description=i3 desktop
+Requires=dbus.socket
+AllowIsolate=true
+
