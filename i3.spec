@@ -1,16 +1,18 @@
 Summary:	Improved tiling WM
 Name:		i3
-Version:	4.2
-Release:	4
+Version:	4.3
+Release:	1
 License:	BSD
 Group:		X11/Applications
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	11b7e5ecdd837341978c72341cb890c6
+# Source0-md5:	6e0258e08f644532497cc97bde937a6c
 Source1:	i3.target
 Source2:	i3wm.service
+URL:		http://i3wm.org
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	libev-devel
+BuildRequires:	pango-devel
 BuildRequires:	pcre-devel
 BuildRequires:	startup-notification-devel
 BuildRequires:	xcb-util-keysyms-devel
@@ -66,7 +68,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/i3
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/i3/config
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/i3/config.keycodes
-%{_sysconfdir}/i3/welcome
 
 %{_datadir}/applications/i3.desktop
 %{_datadir}/xsessions/i3.desktop
