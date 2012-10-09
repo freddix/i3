@@ -1,6 +1,7 @@
-
 [Unit]
 Description=i3 desktop
 Requires=dbus.socket
+After=dbus.socket
+Wants=i3wm.service
 AllowIsolate=true
 

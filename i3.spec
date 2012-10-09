@@ -1,7 +1,7 @@
 Summary:	Improved tiling WM
 Name:		i3
 Version:	4.3
-Release:	1
+Release:	2
 License:	BSD
 Group:		X11/Applications
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
@@ -20,7 +20,6 @@ BuildRequires:	xcb-util-wm-devel
 BuildRequires:	xorg-libXcursor-devel
 BuildRequires:	yajl-devel
 Requires:	i3status
-Requires:	user-session-units
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
