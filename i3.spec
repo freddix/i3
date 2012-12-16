@@ -1,11 +1,11 @@
 Summary:	Improved tiling WM
 Name:		i3
-Version:	4.3
-Release:	4
+Version:	4.4
+Release:	1
 License:	BSD
 Group:		X11/Applications
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	6e0258e08f644532497cc97bde937a6c
+# Source0-md5:	fa2b8aae3d2e10c5ee480bd370366f5b
 Source1:	i3.target
 Source2:	i3wm.service
 URL:		http://i3wm.org
@@ -55,6 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/i3
 %attr(755,root,root) %{_bindir}/i3-config-wizard
+%attr(755,root,root) %{_bindir}/i3-dmenu-desktop
 %attr(755,root,root) %{_bindir}/i3-dump-log
 %attr(755,root,root) %{_bindir}/i3-input
 %attr(755,root,root) %{_bindir}/i3-msg
