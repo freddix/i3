@@ -1,7 +1,7 @@
 Summary:	Improved tiling WM
 Name:		i3
 Version:	4.5.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		X11/Applications
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
@@ -18,6 +18,7 @@ BuildRequires:	xcb-util-wm-devel
 BuildRequires:	xorg-libXcursor-devel
 BuildRequires:	yajl-devel
 Requires:	i3status
+Suggests:	i3lock
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,7 +45,7 @@ install -d $RPM_BUILD_ROOT/usr/lib/systemd/user
 %{__make} DEBUG="" install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT/usr/lib/systemd/user
+install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_prefix}/lib/systemd/user
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -67,9 +68,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/i3/config
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/i3/config.keycodes
 
-%{_datadir}/applications/i3.desktop
 %{_datadir}/xsessions/i3.desktop
 
-/usr/lib/systemd/user/i3.target
-/usr/lib/systemd/user/i3wm.service
+%{_prefix}/lib/systemd/user/i3.target
+%{_prefix}/lib/systemd/user/i3wm.service
 
