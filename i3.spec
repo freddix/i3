@@ -1,7 +1,7 @@
 Summary:	Improved tiling WM
 Name:		i3
 Version:	4.5.1
-Release:	2
+Release:	3
 License:	BSD
 Group:		X11/Applications
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
@@ -70,6 +70,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/xsessions/i3.desktop
 
+%if 0
 %{_prefix}/lib/systemd/user/i3.target
 %{_prefix}/lib/systemd/user/i3wm.service
+%endif
 
