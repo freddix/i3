@@ -1,11 +1,13 @@
+%include	/usr/lib/rpm/macros.perl
+
 Summary:	Improved tiling WM
 Name:		i3
-Version:	4.6
+Version:	4.7
 Release:	1
 License:	BSD
 Group:		X11/Applications
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	11901176eea90632384434c371840cfd
+# Source0-md5:	34dade2bc69e241ab3e3ffaa81122266
 Source1:	i3.target
 Source2:	i3wm.service
 URL:		http://i3wm.org
@@ -13,27 +15,26 @@ BuildRequires:	libev-devel
 BuildRequires:	pango-devel
 BuildRequires:	pcre-devel
 BuildRequires:	startup-notification-devel
+BuildRequires:	xcb-util-cursor-devel
 BuildRequires:	xcb-util-keysyms-devel
 BuildRequires:	xcb-util-wm-devel
-BuildRequires:	xorg-libXcursor-devel
 BuildRequires:	yajl-devel
 Requires:	i3status
 Suggests:	i3lock
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-i3 is a tiling window manager, completely written from scratch.
-i3 is primarily targeted at advanced users and developers.
+i3 is a tiling window manager.
 
 %prep
 %setup -q
 
 # verbose build
-sed -i -e "s|\.SILENT.*||g" common.mk
+%{__sed} -i -e "s|\.SILENT.*||g" common.mk
 
 # use c and ld flags
-sed -i -e "s|-O2|%{rpmcflags}|g" common.mk
-sed -i -e "s|-Wl,--as-needed|%{rpmldflags}|g" common.mk
+%{__sed} -i -e "s|-O2|%{rpmcflags}|g" common.mk
+%{__sed} -i -e "s|-Wl,--as-needed|%{rpmldflags}|g" common.mk
 
 %build
 %{__make} DEBUG=""
@@ -46,6 +47,9 @@ install -d $RPM_BUILD_ROOT/usr/lib/systemd/user
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_prefix}/lib/systemd/user
+
+%{__sed} -i -e '1s,#!/usr/bin/env perl,#!/usr/bin/perl,' \
+	$RPM_BUILD_ROOT%{_bindir}/i3-*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
