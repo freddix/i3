@@ -2,12 +2,12 @@
 
 Summary:	Improved tiling WM
 Name:		i3
-Version:	4.7
+Version:	4.7.1
 Release:	1
 License:	BSD
 Group:		X11/Applications
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	34dade2bc69e241ab3e3ffaa81122266
+# Source0-md5:	7e25d9198bbbe4d0c0e3d2c6eba6980b
 Source1:	i3.target
 Source2:	i3wm.service
 URL:		http://i3wm.org
@@ -66,6 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/i3-sensible-editor
 %attr(755,root,root) %{_bindir}/i3-sensible-pager
 %attr(755,root,root) %{_bindir}/i3-sensible-terminal
+%attr(755,root,root) %{_bindir}/i3-with-shmlog
 %attr(755,root,root) %{_bindir}/i3bar
 
 %dir %{_sysconfdir}/i3
