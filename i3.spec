@@ -2,12 +2,12 @@
 
 Summary:	Improved tiling WM
 Name:		i3
-Version:	4.7.1
+Version:	4.7.2
 Release:	1
 License:	BSD
 Group:		X11/Applications
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	7e25d9198bbbe4d0c0e3d2c6eba6980b
+# Source0-md5:	64141f7c23f97cd1e52c52918476c1c8
 Source1:	i3.target
 Source2:	i3wm.service
 URL:		http://i3wm.org
