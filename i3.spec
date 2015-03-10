@@ -2,16 +2,17 @@
 
 Summary:	Improved tiling WM
 Name:		i3
-Version:	4.8
-Release:	3
+Version:	4.9.1
+Release:	1
 License:	BSD
 Group:		X11/Applications
 Source0:	http://i3wm.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	4151e8e81fdc78b32a7cb953f67e3bef
+# Source0-md5:	6f2b9cba448e2acb818dc106dff33c1c
 Source1:	i3.target
 Source2:	i3wm.service
 URL:		http://i3wm.org
 BuildRequires:	libev-devel
+BuildRequires:	libxkbcommon-devel
 BuildRequires:	pango-devel
 BuildRequires:	pcre-devel
 BuildRequires:	startup-notification-devel
